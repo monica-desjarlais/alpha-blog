@@ -1,0 +1,220 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* Imports */
+ @import url("reset.css");
+ @import url("global-forms.css");
+
+
+ /* Body */
+   body {
+     background: #F5F4EF url('../images/bg.png');
+     color: #000305;
+     font-size: 87.5%;
+     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     line-height: 1.429;
+     margin: 0;
+     padding: 0;
+     text-align: left;
+   }
+
+   /***** Layout *****/
+ .body {clear: both; margin: 0 auto; width: 800px;}
+ img.right figure.right {float: right; margin: 0 0 2em 2em;}
+ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
+
+ /*
+   Header
+ *****************/
+ #banner {
+   margin: 0 auto;
+   padding: 2.5em 0 0 0;
+ }
+
+   /* Banner */
+   #banner h1 {font-size: 3.571em; line-height: 1.5; margin-left: 120px;
+ }
+   #banner h1 a:link, #banner h1 a:visited {
+     color: #000305;
+     display: block;
+     font-weight: bold;
+     margin: 0 0 .6em .2em;
+     text-decoration: none;
+     width: 427px;
+   }
+   #banner h1 a:hover, #banner h1 a:active {
+     background: none;
+     color: #C74350;
+     text-shadow: none;
+   }
+
+   #banner h1 strong {font-size: 0.36em; font-weight: normal;}
+
+ /* Headings */
+ h2 {font-size: 1.571em; color:grey}
+ h3 {font-size: 1.429em}
+ h4 {font-size: 1.286em}
+ h5 {font-size: 1.143em}
+ h6 {font-size: 1em}
+
+ h2, h3, h4, h5, h6 {
+   font-weight: 400;
+   line-height: 1.1;
+   margin-bottom: .8em;
+ }
+
+ /* Anchors */
+ a {outline: 0;}
+ a img {border: 0px; text-decoration: none;}
+  nav a:link, a:visited {
+   color: #blue;
+   background-color: #C74350;
+   padding: 0 1px;
+   text-decoration: underline;
+ }
+ a:hover, a:active {
+   color: #fff;
+   text-decoration: none;
+   text-shadow: 1px 1px 1px #333;
+ }
+
+ /* Paragraphs */
+ p {margin-bottom: 1.143em;}
+ * p:last-child {margin-bottom: 0;}
+
+ strong, b {font-weight: bold;}
+ em, i {font-style: italic;}
+
+
+ /* Lists */
+ ul {
+   list-style: outside disc;
+   margin: 1em 0 1.5em 1.5em;
+   list-style: none;
+ }
+
+
+ dl {margin: 0 0 1.5em 0;}
+ dt {font-weight: bold;}
+ dd {margin-left: 1.5em;}
+
+
+ /* Tables */
+ table {margin: .5em auto 1.5em auto; width: 98%;}
+
+   /* Thead */
+   thead th {padding: .5em .4em; text-align: left;}
+   thead td {}
+
+   /* Tbody */
+   tbody td {padding: .5em .4em;}
+   tbody th {}
+
+
+     /* Main Nav */
+   #banner nav {
+     background: #000305;
+     font-size: 1.143em;
+     height: 40px;
+     line-height: 30px;
+     margin: 0 auto 2em auto;
+     padding: 0;
+     text-align: center;
+     width: 800px;
+
+     border-radius: 5px;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+   }
+
+   #banner nav ul {list-style: none; margin: 0 6em auto; width: 800px;}
+   #banner nav li {float: left; display: inline; margin: 0;}
+
+   #banner nav a:link, #banner nav a:visited {
+     color: #fff;
+     weight:bold;
+     display: inline-block;
+     padding: 5px 1.5em;
+     text-decoration: none;
+   }
+   #banner nav a:hover, #banner nav a:active,
+   #banner nav .active a:link, #banner nav .active a:visited {
+     background: #C74451;
+     color: #fff;
+     text-shadow: none !important;
+   }
+
+   #banner nav li:first-child a {
+
+
+   }
+ Copy
+ We’re using another CSS3 property here: border-radius. This new CSS3 property lets us add rounded borders to our blocks without the need of unnecessary, non-semantic tags that will clutter our code or a million of images and clever background-positioning. No, that’s all a thing of the past. With this we just need to set the radius of our border and that’s it.
+
+ Of course, border-radius is not widely adopted yet, and thus, we need to use the equivalent properties for Mozilla- and Webkit-browsers. There are a lot of variations to this property, and can make your code a little big, but if you want rounded corners on most of the current browsers, you might as well add them.
+
+ You might as well notice the use of !important. This is basically to override the default styles (text-shadow) without complex specificity selectors. In this example it’s here mostly for educational purposes.
+
+ FEATURED BLOCK AND BODY STYLING
+ Here’s the CSS code for both blocks. Note that this is not the styling for the posts’ list. Just the major content block. As both of these blocks have no real special CSS properties, I’ll let you guys figure it out.
+
+
+ /*
+   Featured
+ *****************/
+ #featured {
+   background: #fff;
+   margin-bottom: 2em;
+   overflow: hidden;
+   padding: 20px;
+   width: 760px;
+
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+ }
+
+ #featured figure {
+   border: 2px solid #eee;
+   float: right;
+   margin: 0.786em 2em 0 5em;
+   width: 248px;
+ }
+ #featured figure img {display: block; float: right;}
+
+ #featured h2 {color: #C74451; font-size: 1.714em; margin-bottom: 0.333em;}
+ #featured h3 {font-size: 1.429em; margin-bottom: .5em;}
+
+ #featured h3 a:link, #featured h3 a:visited {color: #000305; text-decoration: none;}
+ #featured h3 a:hover, #featured h3 a:active {color: #fff;}
+ figure img {margin:0}
+
+ /*
+   Body
+ *****************/
+ #content {
+   background: #fff;
+   margin-bottom: 2em;
+   overflow: hidden;
+   padding: 20px 20px;
+   width: 760px;
+
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+ }
+
+ p{font-size: 18px}
