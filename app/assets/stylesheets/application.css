@@ -14,14 +14,12 @@
  *= require_self
  */
 
- /* Imports */
- @import url("reset.css");
- @import url("global-forms.css");
+
 
 
  /* Body */
    body {
-     background: #F5F4EF url('../images/bg.png');
+     background: #F5F4EF
      color: #000305;
      font-size: 87.5%;
      font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -161,16 +159,7 @@
 
 
    }
- Copy
- We’re using another CSS3 property here: border-radius. This new CSS3 property lets us add rounded borders to our blocks without the need of unnecessary, non-semantic tags that will clutter our code or a million of images and clever background-positioning. No, that’s all a thing of the past. With this we just need to set the radius of our border and that’s it.
-
- Of course, border-radius is not widely adopted yet, and thus, we need to use the equivalent properties for Mozilla- and Webkit-browsers. There are a lot of variations to this property, and can make your code a little big, but if you want rounded corners on most of the current browsers, you might as well add them.
-
- You might as well notice the use of !important. This is basically to override the default styles (text-shadow) without complex specificity selectors. In this example it’s here mostly for educational purposes.
-
- FEATURED BLOCK AND BODY STYLING
- Here’s the CSS code for both blocks. Note that this is not the styling for the posts’ list. Just the major content block. As both of these blocks have no real special CSS properties, I’ll let you guys figure it out.
-
+ 
 
  /*
    Featured
