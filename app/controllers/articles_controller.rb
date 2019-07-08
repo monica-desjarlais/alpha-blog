@@ -1,5 +1,5 @@
 class ArticlesController <ApplicationController
-  
+
 def index
 @articles= Article.all    #grab all articles in db
 end
@@ -20,6 +20,13 @@ end
 
 def  show
 @article = Article.find(params[:id])
+end
+
+def destroy
+  @article= Article.find(params[:id]) #find the article
+  @article.destroy   #delete the article
+   flash[:notice] = "Article was successfully deleted"
+   redirect_to articles_path
 end
 
 def edit

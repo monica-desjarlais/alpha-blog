@@ -1,0 +1,5 @@
+<% flash.each do | name, msg| %>  <!--loop through messages created in controller -->
+<ul>
+<li> <%= msg %> </li> <!-- display message created in flash[:notice]-->
+</ul>
+<% end %>

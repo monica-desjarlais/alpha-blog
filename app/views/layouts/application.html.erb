@@ -10,11 +10,7 @@
   </head>
 
   <body>
-    <% flash.each do | name, msg| %>  <!--loop through messages created in controller -->
-<ul>
- <li> <%= msg %> </li> <!-- display message created in flash[:notice]-->
-</ul>
-<% end %>
+    <%= render 'layouts/messages' %> <!--we need to give the layouts folder, because application looks by default in the articles folder templates -->
 
     <%= yield %>
   </body>
