@@ -1,11 +1,7 @@
-<h1> Create an article </h1>
-
-<!--ActiveRecord stores validation errors in an array called errors. If you have an Article (or another) model, you would
-  access the validation errors in a given instance -->
-
+<h1>Edit existing article</h1>
 
 <% if @article.errors.any? %> <!--if there are errors messages -->
-<h2>The following errors prevented the article from being created</h2>
+<h2>The following errors prevented the article from being updated</h2>
 <ul>
 <% @article.errors.full_messages.each do |msg| %>  <!--loop through each message-->
 <li><%= msg %></li>   <!--display all existent messages in a list-->
@@ -32,8 +28,6 @@ Returns all the full error messages in an array -->
 <p>
 <%= f.submit %>
 </p>
-
 <% end %>
-<p>
+
 <%= link_to "Back to articles list", articles_path  %>
-</p>
