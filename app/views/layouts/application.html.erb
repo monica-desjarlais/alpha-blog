@@ -10,8 +10,11 @@
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %> <!--we need to give the layouts folder, because application looks by default in the articles folder templates -->
-
-    <%= yield %>
+    <div class= "container">
+    <%= yield %>  <!-- this serves every page  -->
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
