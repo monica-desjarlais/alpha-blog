@@ -1,15 +1,5 @@
-<!--ActiveRecord stores validation errors in an array called errors. If you have an Article (or another) model, you would
-  access the validation errors in a given instance -->
+<%= render 'shared/errors', obj: @article %>
 
-
-<% if @article.errors.any? %> <!--if there are errors messages -->
-<h2>The following errors prevented the article from being created</h2>
-<ul>
-<% @article.errors.full_messages.each do |msg| %>  <!--loop through each message-->
-<li><%= msg %></li>   <!--display all existent messages in a list-->
-<% end %>  <!--end of display msg action-->
-</ul>
-<% end %>  <!--end of the if condition-->
 
 <!-- full_messages() public
 Returns all the full error messages in an array -->

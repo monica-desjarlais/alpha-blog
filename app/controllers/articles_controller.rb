@@ -12,7 +12,7 @@ end
  def create
  @article=Article.new(article_params) #To whitelist the values of article, we must create the method article_params
    if @article.save
-   flash[:notice]= "Article was successfully created"  #notice is the name of message; will display in application
+   flash[:success]= "Article was successfully created"  #notice is the name of message; will display in application
    redirect_to article_path(@article)  #the index of the actions
    else
    render "new"    #if article is not saved, render the ‘new article’ template
@@ -26,7 +26,7 @@ end
 def destroy
 
   @article.destroy   #delete the article
-   flash[:notice] = "Article was successfully deleted"
+   flash[:danger] = "Article was successfully deleted"
    redirect_to articles_path
 end
 
@@ -37,7 +37,7 @@ end
 def update
 
 if @article.update(article_params)
-flash[:notice]= "Article was successfully updated"
+flash[:success]= "Article was successfully updated"
 redirect_to article_path(@article)
 else
 render "edit"

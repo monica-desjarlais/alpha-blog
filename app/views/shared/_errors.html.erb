@@ -1,0 +1,26 @@
+<!--ActiveRecord stores validation errors in an array called errors. If you have an Article (or another) model, you would
+  access the validation errors in a given instance -->
+
+
+<% if obj.errors.any? %> <!--if there are errors messages -->
+
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <%= pluralize(obj.errors.count, "error") %> <!-- pluralize meth takes the word 'error' and make it plural if there are more errors  -->
+Prohibitted this article from being saved: </h2>
+          <div class="panel-body">
+            <ul>
+              <% obj.errors.full_messages.each do |msg| %>  <!--loop through each message-->
+              <li><%= msg %></li>   <!--display all existent messages in a list-->
+              <% end %>  <!--end of display msg action-->
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% end %>  <!--end of the if condition-->
