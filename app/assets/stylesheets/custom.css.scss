@@ -3,9 +3,25 @@ $navbar-default-bg: #011627;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+margin: 0;
+padding: 0;
+}
+
+html,
+body {
+   margin:0;
+   padding:0;
+  height: 100%;
+}
+
 .container-full {
   margin: 0 auto;
   width: 100%;
+  min-height: 100%;
+  position:relative;
+
+
 }
 
 .navbar-default .navbar-collapse, .navbar-default{
@@ -93,9 +109,33 @@ margin-top: 10px;
     width: 40%;
     padding: 20px;
 
+  }
 
+  article-actions-all{
+
+    border-top: 1px solid #eaeaea;
+    padding: 10px;
 
   }
+
+  .article-title {
+
+  font-weight: bold;
+
+  font-size: 1.5em;
+
+  }
+
+  .article-body {
+
+  border-top: 1px solid #eaeaea;
+
+  padding-top: 15px;
+
+  padding-bottom: 15px;
+
+  }
+
 
   .description{
     margin-top:0;
@@ -103,10 +143,10 @@ margin-top: 10px;
 
 
 footer {
-margin-top: 20px;
+
 border-top: 1px solid #eaeaea;
 color:#FDFFFC;
-height: 120px;
+height: 200px;
 
 }
 
@@ -116,17 +156,17 @@ color: #222;
 
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-
-}
+.footer  {
+   position:fixed;
+   bottom:0;
+   width:100%;
+   margin-top:10px;
+ }
 
 footer small {
 
-margin-top: 95px;
+bottom:0;
+margin-top: 170px;
 margin-left: 20px;
 float: left;
 
