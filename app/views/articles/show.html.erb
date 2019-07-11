@@ -1,6 +1,14 @@
-<h1>Showing selected article </h1>
-<p> Title:  <%= @article.title %> </p>
-<p> Description:  <%= @article.description %> </p>
-<p><%= link_to "Edit this article", edit_article_path(@article) %></p> <!-- we use var @article , present in this template -->
+<h2 class="center">Title: <%= @article.title %> </h2>
+ <div class= "well col-xs-8 col-xs-offset-2">
+   <h3 class="center description"><strong>Description:</strong>
+    <hr>
+    <%= simple_format(@article.description) %></h3> <!--simple_format -displays the original format of description -->
 
-<%= link_to "Back to articles list", articles_path  %>
+ <div class="article-actions">
+
+<%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-toolbar-sm btn-primary" %> <!-- we use var @article , to get the article from ID -->
+<%= link_to "Delete this article", article_path(@article), class: "btn btn-toolbar-lg btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this article? "} %>
+<%= link_to "View all articles", articles_path, class: "btn btn-toolbar-lg btn-success" %>
+
+  </div>
+  </div>
