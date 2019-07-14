@@ -21,6 +21,13 @@
 
 <%= truncate(article.description, length: 100) %> <!--A method to show only first 100 words -->
 
+<div class="article-meta-details">
+<small>Created by: <%= article.user.username if article.user%>, <!-- if that user has articles -->
+<%= time_ago_in_words(article.created_at) %> ago,  <!--a rails method that wraps the created_at attribute and show time in a friendly manner -->
+last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
+</div>
+
+
 </div>
 
 <div class="article-actions-all">
