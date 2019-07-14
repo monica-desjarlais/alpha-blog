@@ -11,6 +11,7 @@ end
 
  def create
  @article=Article.new(article_params) #To whitelist the values of article, we must create the method article_params
+ @article.user = User.first
    if @article.save
    flash[:success]= "Article was successfully created"  #notice is the name of message; will display in application
    redirect_to article_path(@article)  #the index of the actions
