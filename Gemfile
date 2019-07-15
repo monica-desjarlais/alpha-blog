@@ -10,6 +10,8 @@ gem 'rails-ujs', '~> 0.1.0'
 
 # Use sqlite3 as the database for Active Record
 
+gem 'bcrypt', '~> 3.1.7'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
