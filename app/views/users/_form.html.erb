@@ -1,0 +1,53 @@
+<%= render 'shared/errors', obj: @user %>
+
+<!-- full_messages() public
+Returns all the full error messages in an array -->
+
+<!-- In article.rb we defined all the constraints for the title and description that will show in the error messages-->
+
+<div id="user_form">
+  <div class ='row'>
+     <div class ='col-xs-10'>
+  <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+  <!-- TITLE-->
+  <div class="form-group"> <!--Bootstrap class for the a form group-->
+    <div class= "control-label col-sm-2"> <!-- title label-->
+  <%= f.label :username %>
+  </div>
+  <div class="col-sm-10" > <!-- title input-->
+  <%= f.text_field :username, class: "form-control", placeholder:"Enter username", autofocus: true %>
+   </div>  <!-- end of title input-->
+  </div> <!-- end of title group-->
+
+<!-- DESCRIPTION-->
+ <div class="form-group"> <!--Bootstrap class for a form group-->
+    <div class= "col-sm-2 control-label"> <!-- description label-->
+  <%= f.label :email %>
+     </div> <!-- end of description label-->
+  <div class=" col-sm-10" > <!-- description input-->
+  <%= f.email_field :email, class: "form-control", id: "body-article", placeholder:"Enter email" %>
+  </div>
+ </div> <!-- end of description group-->
+
+ <div class="form-group"> <!--Bootstrap class for a form group-->
+    <div class= "col-sm-2 control-label"> <!-- description label-->
+  <%= f.label :password %> <!-- :password = virtual attribute for password_digest -->
+     </div> <!-- end of description label-->
+  <div class=" col-sm-10" > <!-- description input-->
+  <%= f.password_field :password, class: "form-control", id: "body-article", placeholder:"Enter password" %>
+  </div>
+ </div> <!-- end of description group-->
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10 bt-article">
+  <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg') %> <!-- if it's new user-use Sign up, if not use "Update" -->
+  </div>
+</div>
+  <% end %>
+  <div class="col-sm-offset-2 col-sm-10 center">
+    <%= link_to "Cancel and return to articles listing", articles_path  %>
+  </div>
+   </div>
+  </div>
+</div>
