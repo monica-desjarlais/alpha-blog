@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     flash[:success] = "Welcome to the Alpha Blog, #{@user.username}!"
     redirect_to articles_path
     else     #if no, we render the new template and display the errors
-      render "new"
+      render 'new'
     end
   end
 
   def edit
-    @user = User.find(params[:id]) # find user after id
+    @user = User.find(params[:id]) # find user based on id
   end
 
   def update
@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
 

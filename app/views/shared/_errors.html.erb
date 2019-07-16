@@ -9,8 +9,8 @@
   <div class="panel panel-danger">
     <div class="panel-heading">
       <h2 class="panel-title">
-        <%= pluralize(obj.errors.count, "error") %> <!-- pluralize meth takes the word 'error' and make it plural if there are more errors  -->
-Prohibitted this article from being saved: </h2>
+     <%= pluralize( obj.errors.count, "error") %> <!-- pluralize meth takes the word 'error' and make it plural if there are more errors  -->
+prevent the action from being completed: </h2>
           <div class="panel-body">
             <ul>
               <% obj.errors.full_messages.each do |msg| %>  <!--loop through each message-->
