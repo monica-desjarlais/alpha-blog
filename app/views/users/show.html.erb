@@ -11,5 +11,12 @@
 </div>
 
 <h4 align="center"><%= @user.username %>'s articles</h4> <!-- a listing of all the user's articles -->
+<div class="center">
+<%= will_paginate @user_articles %> <!--use the instance variable created in show method-users_controller for pagination -->
+</div>
 
 <%= render 'articles/article', obj: @user.articles %> <!-- assign the value of obj:@user.articles -list all the articles associated with the user -->
+
+<div class="center">
+<%= will_paginate @user_articles %>
+</div>

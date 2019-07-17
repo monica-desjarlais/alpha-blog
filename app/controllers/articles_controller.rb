@@ -2,7 +2,8 @@ class ArticlesController <ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy] #call the set article method before these mentioned methods
 
 def index
-@articles= Article.all    #grab all articles in db
+#@articles= Article.all    grab all articles in db
+@articles = Article.paginate(page: params[:page], per_page: 5) #add pagination-loads the set no.of articles per page -here 5
 end
 
  def new
@@ -22,7 +23,7 @@ end
 
 def  show
 
-end
+  end
 
 def destroy
 
@@ -52,6 +53,7 @@ private
 def set_article
   @article = Article.find(params[:id])   #find an article from its ID
 end
+
 def article_params
 # :article = top-level key  which will permit the value of title and description
 params.require(:article).permit(:title, :description) #require and permit are 2 predefined rails method
