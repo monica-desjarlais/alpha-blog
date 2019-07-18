@@ -15,7 +15,8 @@
 <%= will_paginate @user_articles %> <!--use the instance variable created in show method-users_controller for pagination -->
 </div>
 
-<%= render 'articles/article', obj: @user.articles %> <!-- assign the value of obj:@user.articles -list all the articles associated with the user -->
+<!-- change old article object user.articles with the new paginated object: @user_articles -->
+<%= render 'articles/article', obj: @user_articles %> <!-- assign the value of obj:@user_articles -list all the articles associated with the user -->
 
 <div class="center">
 <%= will_paginate @user_articles %>

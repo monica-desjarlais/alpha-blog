@@ -1,5 +1,7 @@
 class ArticlesController <ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy] #call the set article method before these mentioned methods
+  before_action :require_user, except:  [:index, :show] #all the other methods require a logged in user
+  before_action :require_same_user, only: [:edit, :update, :destroy] #only user who created the article can operate these actions
 
 def index
 #@articles= Article.all    grab all articles in db
@@ -12,7 +14,7 @@ end
 
  def create
  @article=Article.new(article_params) #To whitelist the values of article, we must create the method article_params
- @article.user = User.first
+ @article.user = current_user
    if @article.save
    flash[:success]= "Article was successfully created"  #notice is the name of message; will display in application
    redirect_to article_path(@article)  #the index of the actions
@@ -57,6 +59,18 @@ end
 def article_params
 # :article = top-level key  which will permit the value of title and description
 params.require(:article).permit(:title, :description) #require and permit are 2 predefined rails method
+end
+
+def require_same_user  #only user who created an article can edit/delete it
+
+if current_user != @article.user
+
+flash[:danger] = "You can only edit or delete your own articles"
+
+redirect_to root_path
+
+end
+
 end
 
 end

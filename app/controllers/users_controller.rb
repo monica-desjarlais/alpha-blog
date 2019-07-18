@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_same_user, only: [:edit, :update]
+
   def new
     @user = User.new  # new instance of the class User
   end
@@ -14,11 +18,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) # find user based on id
+
+
   end
 
   def update
-    @user = User.find(params[:id])
+
     if @user.update(user_params)
       flash[:success] = "Your account was successfully updated"
       redirect_to articles_path
@@ -28,13 +33,31 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]) #grab user from id
+
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5) #add pagination to user show
     #instance variable to paginate the articles of a single user
   end
 
   def index
   @users = User.paginate(page: params[:page], per_page: 5)
+end
+
+def set_user
+
+  @user = User.find(params[:id])   #find user based on id
+end
+
+
+def require_same_user
+
+if current_user != @user  #if the user is not logged in and it is not the current user
+
+flash[:danger] = "You can only edit your own account"
+
+redirect_to root_path
+
+end
+
 end
 
 
