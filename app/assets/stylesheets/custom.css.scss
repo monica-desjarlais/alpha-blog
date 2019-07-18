@@ -4,25 +4,29 @@ $navbar-default-bg: #011627;
 @import "bootstrap";
 
 * {
-margin: 0;
-padding: 0;
+ box-sizing: border-box;
 }
-
+*:before,
+*:after {
+ box-sizing: border-box;
+}
 html,
 body {
-   margin:0;
-   padding:0;
-  
+ height: 100%;
+ position: relative;
 }
 
 .container-full {
   margin: 0 auto;
   width: 100%;
-  min-height: 100%;
-  position:relative;
-
-
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 120px; /* height of  footer */
 }
+
+
 
 .navbar-default .navbar-collapse, .navbar-default{
 margin-bottom:0 !important;
@@ -98,6 +102,11 @@ margin-top:30px;
 
 }
 
+.form-horizontal{
+
+  margin-top:50px;
+}
+
 .listing {
 list-style: none;
 padding-left: 0;
@@ -165,7 +174,7 @@ footer {
 
 border-top: 1px solid #eaeaea;
 color:#FDFFFC;
-height: 120px;
+
 
 }
 
@@ -176,16 +185,17 @@ color: #222;
 }
 
 .footer  {
-   position:fixed;
-   bottom:0;
+   position:absolute;
+   height: 120px;
    width:100%;
-   margin-top:10px;
+   bottom:0;
+
  }
 
 footer small {
 
 bottom:0;
-margin-top: 90px;
+margin-top: 70px;
 margin-left: 20px;
 float: left;
 
