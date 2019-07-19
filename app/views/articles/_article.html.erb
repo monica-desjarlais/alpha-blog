@@ -33,7 +33,7 @@ last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
 
 </div>
 
-<% if logged_in? && current_user == article.user %> <!--only if it's the user who created the article, can access the actions -->
+<% if logged_in? && (current_user == article.user || current_user.admin?) %> <!--only if it's the user who created the article, can access the actions -->
 
 <div class="article-actions">
 
