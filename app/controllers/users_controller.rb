@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save  #if user is saved (acomplishes all conditions)
+    session[:user_id]= @user.id   #sign in the user who just signed up  
     flash[:success] = "Welcome to the Alpha Blog, #{@user.username}!"
-    redirect_to articles_path
+    redirect_to user_path(@user) #redirect the new user to his own page
+
     else     #if no, we render the new template and display the errors
       render 'new'
     end
