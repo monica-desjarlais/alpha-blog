@@ -10,13 +10,13 @@ end
 
  def new
    @article =Article.new  #initiate the article variable, which will create a form at the UI level
- end                      #Article = class name(model) - we create an object ( article) for this class
+ end                      #Article = class name(model) - we create an object (@article) for this class
 
  def create
  @article=Article.new(article_params) #To whitelist the values of article, we must create the method article_params
- @article.user = current_user
+ @article.user = current_user  #the article is assigned to the actual current user
    if @article.save
-   flash[:success]= "Article was successfully created"  #notice is the name of message; will display in application
+   flash[:success]= "Article was successfully created"  #:success is the name of message (Boot); will display in application
    redirect_to article_path(@article)  #the index of the actions
    else
    render "new"    #if article is not saved, render the ‘new article’ template
@@ -59,7 +59,7 @@ end
 def article_params
 # :article = top-level key  which will permit the value of title and description
 params.require(:article).permit(:title, :description) #require and permit are 2 predefined rails method
-end
+end   #params come from the users' browser when they request the page(in rails they are a hash with hashes inside)
 
 def require_same_user  #only user who created an article can edit/delete it
 

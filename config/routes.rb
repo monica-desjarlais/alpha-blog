@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create' #will post the form and create user's session (logged in state)
   delete 'logout', to: 'sessions#destroy' #user logout, destroy session
 
+  resources :categories, except: [:destroy]  #we don't want a delete action for categories
+
 # Resource routing allows you to quickly declare all of the common routes for a given resourceful controller.
 # Instead of declaring separate routes for your index , show , new , edit , create , update and destroy actions,
 #a resourceful route declares them in a single line of code.
