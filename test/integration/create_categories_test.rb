@@ -2,7 +2,13 @@ require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+def setup
+@user = User.create(username: "mlaura", email: "mlaura@gmail.com", password: "password", admin: true) #create admin
+end
+
+
 test "get new category form and create category" do
+sign_in_as(@user, "password")
 get new_category_path  #go to the new category path
 assert_template 'categories/new'  # get the new form
 #assert_difference=checking to make sure that the number of objects for whatever type was specified has increased by 1.
@@ -22,15 +28,11 @@ assert_match "sports", response.body #check if the name of new created category 
 end
 
 test "invalid category submission results in failure" do
-
+sign_in_as(@user, "password")
 get new_category_path
-
 assert_template 'categories/new'
-
 assert_no_difference 'Category.count' do #nothing is added in database
-
-post categories_path, params: { category: {name: " "} }
-
+post categories_path, params: { category: {name: " "} } # if the name is empty, cat can't be created
 end
 
 assert_template 'categories/new'
