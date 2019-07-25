@@ -27,7 +27,6 @@ body {
 }
 
 
-
 .navbar-default .navbar-collapse, .navbar-default{
 margin-bottom:0 !important;
 
@@ -127,12 +126,11 @@ padding-left: 0;
   .article-actions{
     border-top: 1px solid #eaeaea;
     margin: auto;
-    width: 40%;
     padding: 20px;
 
   }
 
-  article-actions-all{
+  .article-actions-all{
 
     border-top: 1px solid #eaeaea;
     padding: 10px;
@@ -168,12 +166,24 @@ border-top: 1px solid #eaeaea;
 margin-top: 15px;
 }
 
-ul.listing{
-  margin-top: 50px;
+.badge {
+background-color: #011627;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+.badge a {
+  color:#FFFFFF;
+}
+
+.input_checkbox input {
+width: auto !important;
 }
 
 
-
+ul.listing{
+  margin-top: 50px;
+}
 
 
 footer {

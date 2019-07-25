@@ -20,6 +20,10 @@ end
 end
 
 def show
+@category = Category.find(params[:id])
+#define var @category_articles which will be used by will_paginate
+@category_articles = @category.articles.paginate(page: params[:page], per_page: 5)
+
 end
 
 private

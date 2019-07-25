@@ -58,7 +58,8 @@ end
 
 def article_params
 # :article = top-level key  which will permit the value of title and description
-params.require(:article).permit(:title, :description) #require and permit are 2 predefined rails method
+params.require(:article).permit(:title, :description, category_ids: []) # [] = category_ids come in array form
+#require and permit are 2 predefined rails method
 end   #params come from the users' browser when they request the page(in rails they are a hash with hashes inside)
 
 def require_same_user  #only user who created an article can edit/delete it

@@ -3,7 +3,7 @@
 <!-- @articles includes all the articles; article= each individual item -->
 
 
-<% obj.each do |article| %> <!-- obj = generic object for article or @article -->
+<% obj.each do |article| %> <!-- obj = generic object for different instances(@article, etc) -->
 
 <div class="row">
 
@@ -33,7 +33,14 @@ last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
 
 </div>
 
-<% if logged_in? && (current_user == article.user || current_user.admin?) %> <!--only if it's the user who created the article, can access the actions -->
+<!--display the article category-->
+
+<% if article.categories.any? %>
+<p>Categories: <%= render article.categories %></p>
+<% end %>
+
+<!--ADMIN- only if it's the user who created the article, can access the actions -->
+<% if logged_in? && (current_user == article.user || current_user.admin?) %>
 
 <div class="article-actions">
 
